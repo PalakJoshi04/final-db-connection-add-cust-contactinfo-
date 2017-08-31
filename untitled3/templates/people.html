@@ -1,0 +1,67 @@
+{% extends "main.html" %}
+
+{% block title %} Polar Registration{% endblock %}
+{% block header %}Customer Registration Form{% endblock %}
+{% block content %}
+
+<!doctype html>
+<meta charset="utf-8">
+    <title dir="ltr">Polar Registration</title>
+
+
+
+        <!-- <link rel="stylesheet" href="https://images-na.ssl-images-amazon.com/images/I/61gbb09bfIL._RC|11Fd9tJOdtL.css,21ULbzscqzL.css,31Q3id-QR0L.css,31QszevPBSL.css_.css#AUIClients/AmazonUI.min" />
+<link rel="stylesheet" href="https://images-na.ssl-images-amazon.com/images/G/01/AUIClients/AuthenticationPortalAssets-67a5108f32129a16f8b39f3a0227b2e7ccc08231._V2_.css#AUIClients/AuthenticationPortalAssets.secure.min" />
+<link rel="stylesheet" href="https://images-na.ssl-images-amazon.com/images/G/01/AUIClients/CVFAssets-9bc0bb0edc53356ac227308c4513064822e06bb4._V2_.css#AUIClients/CVFAssets.secure.min" /> -->
+
+<div id="a-page"><script type="a-state" data-a-state="{&quot;key&quot;:&quot;a-wlab-states&quot;}">{"AUI_51744":null,"AUI_57326":null,"AUI_72554":null,"AUI_83815":null,"AUI_86171":null,"AUI_96511":null,"AUI_ACCESSIBILITY_49860":null,"AUI_ATTR_VALIDATIONS_1_51371":null,"AUI_BOLT_62845":null,"AUI_NOOPENER_84118":"T1","AUI_UX_102912":null,"AUI_UX_59374":null,"AUI_UX_60000":null,"AUI_UX_92006":"C","AUI_UX_98513":"C","DEX_92889":null}</script>
+    <div class="a-section a-padding-medium auth-workflow">
+      <div class="a-section a-spacing-none auth-navbar">
+
+<div class="a-section a-spacing-medium a-text-center">
+
+      <a class="a-link-nav-icon" tabindex="-1" href="http://www.polarits.com">
+            <!-- <i class="a-icon a-icon-logo" aria-label="Amazon"><span class="a-icon-alt">Amazon</span></i> -->
+
+
+      </a>
+
+
+</div>
+
+
+      </div>
+          <div class="a-section a-spacing-base auth-pagelet-container">
+
+
+
+                <!--<div id="auth-cookie-warning-message" class="a-box a-alert a-alert-warning"><div class="a-box-inner a-alert-container"><h4 class="a-alert-heading">Please Enable Cookies to Continue</h4><i class="a-icon a-icon-alert"></i><div class="a-alert-content">
+                  <p>
+                    <a class="a-link-normal" href="/gp/help/customer/display.html/ref=ap_cookie_error_help?">
+
+                    </a>
+                  </p>
+                </div></div></div>-->
+
+
+          </div>
+
+
+
+
+<!-- show a warning modal dialog when the third party account is connected with Amazon -->
+
+<form action="/people" method="post" >
+      {% csrf_token %}
+            {{ form }}
+        <input type="submit" value="add" />
+</form>
+        <table>
+            {% for customer in people %}
+            <tr><td>{{ customer.first_name }}</td><td>{{ customer.last_name }}</td><td>{{ customer.mobileNumber }}</td><td>{{ customer.city }}</td></tr>
+            {% endfor %}
+        </table>
+
+</div>
+</div>
+{% endblock %}
